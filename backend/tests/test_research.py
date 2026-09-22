@@ -3,15 +3,15 @@ import json
 from datetime import date
 
 import pytest
-from chainlens.cli import app as cli
-from chainlens.config import DEFAULT_SNAPSHOT
-from chainlens.database import make_engine
-from chainlens.errors import DomainError
-from chainlens.importer import import_snapshot, load_snapshot
-from chainlens.models import Company, Evidence, Relationship, RelationshipEvidence, Score
-from chainlens.schemas import QueryFilters, Snapshot
-from chainlens.scoring import calculate_score, independent_count
-from chainlens.service import ResearchService
+from app.cli import app as cli
+from app.core.config import DEFAULT_SNAPSHOT
+from app.core.errors import DomainError
+from app.db.session import make_engine
+from app.models import Company, Evidence, Relationship, RelationshipEvidence, Score
+from app.schemas import QueryFilters, Snapshot
+from app.services.import_service import import_snapshot, load_snapshot
+from app.services.research_service import ResearchService
+from app.services.scoring import calculate_score, independent_count
 from conftest import evidence, relationship
 from pydantic import ValidationError
 from sqlalchemy import func, select

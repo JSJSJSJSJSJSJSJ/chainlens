@@ -25,6 +25,8 @@ Score 单独保存总分、分项、解释、版本与计算时间。分数衡�
 
 ## 后端职责
 
+代码位于 `backend/app`：`api/endpoints` 按公司、关系、健康检查拆分路由，`api/dependencies.py` 管理请求级依赖，`models` 定义表，`schemas` 校验输入，`services` 实现共享业务规则，`core` 管理配置和业务异常，`db` 管理数据库引擎、基类与查询。`main.py` 仅负责应用组装和生命周期，`cli.py` 提供命令入口。完整目录说明见 [后端开发说明](../backend/README.md)。
+
 - Pydantic 校验输入、枚举、日期、关联引用和快照完整性。
 - SQLAlchemy 管理表、关联、会话与导入事务；SQLite 适合此版本的小规模固定快照。
 - 共享服务统一角色转换、时间过滤、排序、分页、证据聚合与评分，避免 CLI 和 API 各自解释同一事实。

@@ -15,14 +15,14 @@ dependencies = [
 dev = ["pytest>=8.3,<10", "httpx>=0.28,<1", "ruff>=0.11,<1"]
 
 [project.scripts]
-chainlens = "chainlens.cli:app"
+chainlens = "app.cli:app"
 
 [build-system]
 requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["backend/chainlens"]
+packages = ["backend/app"]
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]

@@ -3,7 +3,7 @@
 import os
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_SNAPSHOT = ROOT / "data" / "snapshots" / "2026-09-16.v1.json"
 
 

@@ -41,4 +41,4 @@ score: {total, rule_version, calculated_at, components: [{key, label, points, ma
 
 前端使用 /api 相对路径，由 Vite 代理到 127.0.0.1:8000；默认中心公司 ID `nvidia`。
 
-CLI: `python -m chainlens.cli import-snapshot`, `companies`, `company nvidia`, `relationships nvidia`, `graph nvidia`, `evidence RELATIONSHIP_ID`，查询提供 --json，与 API 共用服务。Python 包位于 backend/chainlens，测试 backend/tests，根目录 pyproject.toml/uv.lock；frontend 使用 pnpm-lock.yaml。
+CLI: `python -m app.cli import-snapshot`, `companies`, `company nvidia`, `relationships nvidia`, `graph nvidia`, `evidence RELATIONSHIP_ID`，查询提供 --json，与 API 共用服务。Python 包位于 backend/app，测试 backend/tests，根目录 pyproject.toml/uv.lock；frontend 使用 pnpm-lock.yaml。

@@ -5,14 +5,15 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from pydantic import ValidationError
-from sqlalchemy import delete, select, update
+from sqlalchemy import delete, update
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
 
-from .errors import DomainError
-from .models import Company, Dataset, Evidence, Relationship, RelationshipEvidence, Score
-from .schemas import Snapshot
-from .scoring import calculate_score
+from app.core.errors import DomainError
+from app.db.crud import get_active_dataset
+from app.models import Company, Dataset, Evidence, Relationship, RelationshipEvidence, Score
+from app.schemas import Snapshot
+from app.services.scoring import calculate_score
 
 
 def load_snapshot(path: Path) -> tuple[Snapshot, str]:
@@ -114,6 +115,6 @@ def import_snapshot(engine: Engine, path: Path) -> dict:
 
 def ensure_dataset(engine: Engine, path: Path):
     with Session(engine) as session:
-        active = session.scalar(select(Dataset).where(Dataset.active.is_(True)))
+        active = get_active_dataset(session)
     if active is None:
         import_snapshot(engine, path)

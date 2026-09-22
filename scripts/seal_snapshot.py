@@ -9,7 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from chainlens.schemas import Snapshot
+from app.schemas import Snapshot
 
 
 def main():

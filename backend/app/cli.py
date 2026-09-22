@@ -11,12 +11,12 @@ from rich.console import Console
 from rich.table import Table
 from sqlalchemy.orm import Session
 
-from .config import snapshot_path
-from .database import make_engine
-from .errors import DomainError
-from .importer import ensure_dataset, import_snapshot
-from .schemas import QueryFilters
-from .service import ResearchService
+from app.core.config import snapshot_path
+from app.core.errors import DomainError
+from app.db.session import make_engine
+from app.schemas import QueryFilters
+from app.services.import_service import ensure_dataset, import_snapshot
+from app.services.research_service import ResearchService
 
 app = typer.Typer(no_args_is_help=True, help="ChainLens 链鉴：固定快照的离线研究查询。")
 JsonFlag = Annotated[bool, typer.Option("--json", help="输出与 HTTP API 相同的数据结构")]

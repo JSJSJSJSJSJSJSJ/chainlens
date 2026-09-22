@@ -4,9 +4,9 @@ import hashlib
 import json
 
 import pytest
-from chainlens.database import make_engine
-from chainlens.importer import import_snapshot
-from chainlens.main import create_app
+from app.db.session import make_engine
+from app.main import create_app
+from app.services.import_service import import_snapshot
 from fastapi.testclient import TestClient
 
 

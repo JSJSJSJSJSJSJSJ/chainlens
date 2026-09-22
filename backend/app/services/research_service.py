@@ -2,13 +2,13 @@
 
 from datetime import UTC, date, datetime
 
-from sqlalchemy import or_, select
 from sqlalchemy.orm import Session
 
-from .errors import DomainError
-from .models import Company, Dataset, Relationship
-from .schemas import QueryFilters
-from .scoring import calculate_score, independent_count
+from app.core.errors import DomainError
+from app.db import crud
+from app.models import Company, Relationship
+from app.schemas import QueryFilters
+from app.services.scoring import calculate_score, independent_count
 
 
 def serialize(model) -> dict:
@@ -49,12 +49,12 @@ def matches_valid_at(relationship, at: date, include_unknown: bool, cutoff: date
 class ResearchService:
     def __init__(self, session: Session):
         self.session = session
-        dataset = session.scalar(select(Dataset).where(Dataset.active.is_(True)))
+        dataset = crud.get_active_dataset(session)
         if dataset is None:
             raise DomainError("DATASET_UNAVAILABLE", "没有已导入的研究快照", 503)
         self.metadata = dataset.metadata_json
         self.cutoff = date.fromisoformat(self.metadata["research_cutoff"])
-        self.companies_by_id = {item.id: item for item in session.scalars(select(Company))}
+        self.companies_by_id = {item.id: item for item in crud.list_companies(session)}
 
     def check_date(self, value: date | None):
         if value and value > self.cutoff:
@@ -125,16 +125,7 @@ class ResearchService:
 
     def _relationships(self, company_id: str):
         self.require_company(company_id)
-        return list(
-            self.session.scalars(
-                select(Relationship).where(
-                    or_(
-                        Relationship.source_company_id == company_id,
-                        Relationship.target_company_id == company_id,
-                    )
-                )
-            )
-        )
+        return crud.list_company_relationships(self.session, company_id)
 
     def _evidence(self, relationship: Relationship, known_at: date | None = None):
         return [
@@ -284,7 +275,7 @@ class ResearchService:
 
     def require_relationship(self, relationship_id: str, known_at: date | None = None):
         self.check_date(known_at)
-        relationship = self.session.get(Relationship, relationship_id)
+        relationship = crud.get_relationship(self.session, relationship_id)
         if relationship is None or not self._visible(relationship, known_at):
             raise DomainError(
                 "RELATIONSHIP_NOT_FOUND", "关系不存在或在所选已公开信息范围内没有支持证据", 404

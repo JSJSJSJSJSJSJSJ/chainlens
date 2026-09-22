@@ -4,8 +4,9 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.engine import Engine, make_url
 from sqlalchemy.pool import StaticPool
 
-from .config import database_url
-from .models import Base
+from app import models  # noqa: F401  -- register all tables before create_all
+from app.core.config import database_url
+from app.db.base import Base
 
 
 def make_engine(url: str | None = None) -> Engine:

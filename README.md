@@ -27,7 +27,7 @@ pnpm --dir frontend install --frozen-lockfile
 
 ```sh
 # 终端一：API
-uv run uvicorn chainlens.main:app --host 127.0.0.1 --port 8000
+uv run uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
 ```sh
@@ -62,6 +62,8 @@ uv run chainlens graph nvidia --json
 列表支持关键词、相对关系角色、最低置信度、事实状态、日期、稳定排序与分页（单页最多 100）。图沿用筛选，最多展示前 100 条并显式返回截断信息。`known_at` 按当时已发表的证据子集重评分；`valid_at` 按有效区间筛选。未知时间默认不纳入有效日过滤，`include_unknown_time=true` 可纳入不确定候选，仍不视为已知。不能查询晚于研究截止日的日期。
 
 ## 测试与复现
+
+后端采用 `backend/app` 分层结构，路由、模型、校验、业务服务、配置和数据库访问各自独立。目录职责与运行说明见 [后端开发说明](backend/README.md)。旧环境更新后请先运行 `uv sync --frozen`，HTTP 入口为 `app.main:app`，CLI 命令仍为 `chainlens`。
 
 ```sh
 uv run pytest
