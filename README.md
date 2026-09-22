@@ -100,5 +100,3 @@ uv run python scripts/snapshots.py compare data/snapshots/2026-09-16.v1.json dat
 - [AI 使用披露与后续事项](docs/ai-usage.md)
 - [五分钟面试演示与 React 讲解](docs/interview-guide.md)
 - [十项验收映射、验证结果与限制](docs/acceptance.md)
-
-此交付先完成本地仓库。已有 Git 远程配置不等于已经公开发布；未执行推送。发布前应由作者检查研究解释、摘录许可和最终变更，再向目标 GitHub 仓库推送。
