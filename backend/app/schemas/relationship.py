@@ -19,7 +19,7 @@ class RelationshipData(StrictModel):
     temporal_status: Literal["historical", "current", "unknown"]
     continuity_note: Text
     uncertainty: Text
-    human_review_status: Literal["pending"]
+    human_review_status: Literal["pending", "review_prepared", "approved"]
     entity_resolution: Literal["exact", "mapped", "uncertain"]
     comparison_dimension: str | None
     quantitative_context: str | None

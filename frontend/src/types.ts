@@ -22,7 +22,7 @@ export interface Relationship {
   relationship_type: Exclude<RelationshipRole, 'customer'>; queried_role: RelationshipRole;
   business_description: string; fact_status: FactStatus; valid_from: string | null; valid_to: string | null;
   temporal_status: 'historical' | 'current' | 'unknown'; continuity_note: string; uncertainty: string;
-  human_review_status: 'pending'; entity_resolution: 'exact' | 'mapped' | 'uncertain';
+  human_review_status: 'pending' | 'review_prepared' | 'approved'; entity_resolution: 'exact' | 'mapped' | 'uncertain';
   comparison_dimension: string | null; quantitative_context: string | null;
   evidence_links: { evidence_id: string; stance: 'supports' | 'contradicts'; directness: 'direct' | 'indirect' }[];
   source_company: Company; target_company: Company; related_company: Company | null;

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('fixed snapshot → filters → evidence → shared graph → historical customer', async ({ page, request }) => {
   const health = await request.get('/api/health');
-  expect(health.ok()).toBeTruthy(); expect((await health.json()).dataset_version).toBe('2026-09-16.v1');
+  expect(health.ok()).toBeTruthy(); expect((await health.json()).dataset_version).toBe('2026-09-16.v3');
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /NVIDIA 英伟达/ })).toBeVisible();
   await expect(page.getByText('2026-09-16', { exact: true })).toBeVisible();
@@ -10,7 +10,7 @@ test('fixed snapshot → filters → evidence → shared graph → historical cu
   await expect(page.getByRole('button', { name: '查看TSMC 台积电的供应商关系' })).toBeVisible();
   await page.getByRole('button', { name: '查看TSMC 台积电的供应商关系' }).click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.getByText('待人工复核', { exact: true })).toBeVisible();
+  await expect(dialog.getByText('人工审核通过', { exact: true })).toBeVisible();
   await expect(dialog.getByRole('link', { name: /NVIDIA FY2026 Form 10-K/ })).toHaveAttribute('href', /sec.gov/);
   await dialog.getByText('来源可信度', { exact: true }).click();
   await expect(dialog.getByText(/监管25/)).toBeVisible();

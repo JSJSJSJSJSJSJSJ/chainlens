@@ -7,16 +7,24 @@ import { detail, relation, evidence } from './test/fixtures';
 
 vi.mock('./components/RelationshipGraph', () => ({ RelationshipGraph: () => <div>测试图占位</div> }));
 const response = (data: unknown, ok = true) => ({ ok, status: ok ? 200 : 503, json: async () => data }) as Response;
-function installFetch(options: { empty?: boolean; noEvidence?: boolean; fail?: boolean } = {}) {
+function installFetch(options: { empty?: boolean; noEvidence?: boolean; fail?: boolean; reviewStatus?: 'review_prepared' | 'approved' } = {}) {
+  const record = options.reviewStatus ? { ...relation, human_review_status: options.reviewStatus } : relation;
   return vi.stubGlobal('fetch', vi.fn(async (url: string) => {
     if (options.fail) return response({ error: { message: '测试服务不可用' } }, false);
     if (url.endsWith('/companies/nvidia')) return response(detail);
     if (url.includes('/evidence')) return response({ items: options.noEvidence ? [] : [evidence], total: options.noEvidence ? 0 : 1 });
-    if (url.includes('/relationships/test-relation')) return response(relation);
-    return response({ items: options.empty ? [] : [relation], total: options.empty ? 0 : 1, page: 1, page_size: 10 });
+    if (url.includes('/relationships/test-relation')) return response(record);
+    return response({ items: options.empty ? [] : [record], total: options.empty ? 0 : 1, page: 1, page_size: 10 });
   }));
 }
 describe('研究工作台（合成数据）', () => {
+  it.each([['review_prepared', '审核记录已准备，待本人确认'], ['approved', '人工审核通过']] as const)('shows %s in both table and detail', async (reviewStatus, label) => {
+    installFetch({ reviewStatus }); render(<App />);
+    expect(await screen.findByText(label)).toBeVisible();
+    await userEvent.click(screen.getByRole('button', { name: '查看合成供应商的供应商关系' }));
+    const dialog = await screen.findByRole('dialog');
+    expect(await within(dialog).findByText(label)).toBeVisible();
+  });
   it('loads data, shares filter query, opens details and evidence, closes with Escape', async () => {
     installFetch(); const user = userEvent.setup(); render(<App />);
     expect(screen.getByRole('status')).toHaveTextContent('正在读取研究快照');

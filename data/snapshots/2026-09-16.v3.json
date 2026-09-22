@@ -1,0 +1,1011 @@
+{
+  "metadata": {
+    "dataset_version": "2026-09-16.v3",
+    "research_cutoff": "2026-09-16",
+    "score_version": "1.0.0",
+    "created_at": "2026-09-22T14:19:22.210891Z",
+    "description": "NVIDIA 公开资料研究快照；22条关系由JOE于2026-09-22完成人工审核并判断正确。确认披露的事实或历史事件，不推定合作持续、直接采购金额或当前持股。",
+    "gaps": [
+      "ASUS customer 样本来自2017年报的具名芯片供应商清单，只能证明历史供应；2025年报未具名披露采购对手，不能据此延续到截止日。",
+      "持续性研究尚不完整：供应、peer 的合同起止与截止日现状未取得完整证据；日期未知保持为空。",
+      "ASUS两份年报的公开发布日期无法从原文可靠确定，published_at=null；印刷日期不当作发布日期，known_at 查询将排除这些未知发布日期证据。",
+      "无金额的关系不表示低价值；采购量、收入贡献与投资现有余额多数未核验。",
+      "本快照未发现可确认为同一事实且同一时期的冲突原文；冲突规则由隔离的合成测试验证，未杜撰真实冲突。",
+      "公开资料读取由AI辅助于2026-09-16进行；人工关系审核由JOE于2026-09-22完成。未取得全文再分发许可，仅保存元数据、短摘录和解释。",
+      "逐条人工判断见docs/human-review.md；approved表示人工审核通过，不改变事实范围、研究截止日或评分。整体方法观点仍为AI草稿，未单独记录作者认同。"
+    ]
+  },
+  "companies": [
+    {
+      "id": "nvidia",
+      "legal_name": "NVIDIA Corporation",
+      "display_name": "NVIDIA 英伟达",
+      "aliases": [
+        "NVIDIA",
+        "英伟达",
+        "NVDA"
+      ],
+      "ticker": "NVDA",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "以美国上市发行人归一；不把其品牌、产品或子公司另计为上市公司。"
+    },
+    {
+      "id": "tsmc",
+      "legal_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "display_name": "TSMC 台积电",
+      "aliases": [
+        "TSMC",
+        "台积电",
+        "台灣積體電路製造股份有限公司",
+        "2330",
+        "TSM"
+      ],
+      "ticker": "2330",
+      "exchange": "TWSE",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "TWSE 2330 为普通股；NYSE TSM 为同一发行人的 ADS，不重复创建公司。"
+    },
+    {
+      "id": "samsung",
+      "legal_name": "Samsung Electronics Co., Ltd.",
+      "display_name": "Samsung 三星电子",
+      "aliases": [
+        "Samsung Electronics",
+        "三星电子",
+        "三星電子",
+        "005930"
+      ],
+      "ticker": "005930",
+      "exchange": "KRX",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "三星电子上市主体；不等同于整个 Samsung 集团、Samsung SDS 或 Samsung SDI。普通股005930与优先股005935区分。"
+    },
+    {
+      "id": "sk-hynix",
+      "legal_name": "SK hynix Inc.",
+      "display_name": "SK hynix 海力士",
+      "aliases": [
+        "SK Hynix",
+        "海力士",
+        "SK海力士",
+        "000660"
+      ],
+      "ticker": "000660",
+      "exchange": "KRX",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "独立上市的存储器发行人；不等同于 SK Inc. 或 SK Telecom。"
+    },
+    {
+      "id": "micron",
+      "legal_name": "Micron Technology, Inc.",
+      "display_name": "Micron 美光",
+      "aliases": [
+        "Micron",
+        "美光",
+        "MU"
+      ],
+      "ticker": "MU",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "以 Micron Technology 上市发行人归一；产品 HBM3E 不另建实体。"
+    },
+    {
+      "id": "hon-hai",
+      "legal_name": "Hon Hai Precision Industry Co., Ltd.",
+      "display_name": "Hon Hai 鸿海",
+      "aliases": [
+        "Foxconn",
+        "鸿海",
+        "鴻海",
+        "富士康",
+        "2317"
+      ],
+      "ticker": "2317",
+      "exchange": "TWSE",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "Foxconn 为鸿海科技集团通用名，本条以具名 Hon Hai Precision 发行人归一；不得与 A 股工业富联601138混用。"
+    },
+    {
+      "id": "asus",
+      "legal_name": "ASUSTeK Computer Inc.",
+      "display_name": "ASUS 华硕",
+      "aliases": [
+        "ASUS",
+        "ASUSTeK",
+        "华硕",
+        "華碩",
+        "2357"
+      ],
+      "ticker": "2357",
+      "exchange": "TWSE",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "上市主体为华硕电脑；ROG 是品牌；ASUS Cloud 等子公司不作为本快照独立上市主体。"
+    },
+    {
+      "id": "synopsys",
+      "legal_name": "Synopsys, Inc.",
+      "display_name": "Synopsys 新思科技",
+      "aliases": [
+        "Synopsys",
+        "新思科技",
+        "SNPS"
+      ],
+      "ticker": "SNPS",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "以 Synopsys 上市发行人归一；cuLitho/Proteus 为产品，不建立上市实体。"
+    },
+    {
+      "id": "amd",
+      "legal_name": "Advanced Micro Devices, Inc.",
+      "display_name": "AMD 超威半导体",
+      "aliases": [
+        "AMD",
+        "Advanced Micro Devices",
+        "超威半导体"
+      ],
+      "ticker": "AMD",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "Advanced Micro Devices 为法定上市主体，AMD 为简称和证券代码。"
+    },
+    {
+      "id": "intel",
+      "legal_name": "Intel Corporation",
+      "display_name": "Intel 英特尔",
+      "aliases": [
+        "Intel",
+        "英特尔",
+        "INTC"
+      ],
+      "ticker": "INTC",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "使用 Intel Corporation 上市主体；Intel Foundry 等业务部门不另列上市公司。"
+    },
+    {
+      "id": "microsoft",
+      "legal_name": "Microsoft Corporation",
+      "display_name": "Microsoft 微软",
+      "aliases": [
+        "Microsoft",
+        "微软",
+        "Azure",
+        "Microsoft Azure",
+        "MSFT"
+      ],
+      "ticker": "MSFT",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "Azure 是 Microsoft 的云服务业务；云业务合作归一到上市 Microsoft，不代表所有微软业务均有关联。"
+    },
+    {
+      "id": "alphabet",
+      "legal_name": "Alphabet Inc.",
+      "display_name": "Alphabet / Google",
+      "aliases": [
+        "Alphabet",
+        "Google",
+        "Google Cloud",
+        "谷歌",
+        "GOOGL",
+        "GOOG"
+      ],
+      "ticker": "GOOGL",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "Google Cloud 属 Google 业务，映射上市母公司 Alphabet；GOOGL 为 A 类，GOOG 为 C 类，不重复计公司。"
+    },
+    {
+      "id": "amazon",
+      "legal_name": "Amazon.com, Inc.",
+      "display_name": "Amazon 亚马逊",
+      "aliases": [
+        "Amazon",
+        "Amazon.com",
+        "Amazon Web Services",
+        "AWS",
+        "亚马逊",
+        "AMZN"
+      ],
+      "ticker": "AMZN",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "AWS 是 Amazon 报告分部，合作记录映射至上市母公司 Amazon.com；不将 AWS 当作独立上市发行人。"
+    },
+    {
+      "id": "coreweave",
+      "legal_name": "CoreWeave, Inc.",
+      "display_name": "CoreWeave",
+      "aliases": [
+        "CoreWeave",
+        "CRWV"
+      ],
+      "ticker": "CRWV",
+      "exchange": "NASDAQ",
+      "listing_status": "listed",
+      "parent_id": null,
+      "identity_notes": "8-K封面确认 CRWV 为 Nasdaq 上市 A 类普通股；2026年投资事件与当前持股分开。"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-nv-fy26-manufacturing",
+      "title": "NVIDIA FY2026 Form 10-K — Manufacturing",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "publisher": "NVIDIA Corporation / SEC EDGAR",
+      "published_at": "2026-02-25",
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "Item 1 Business, Manufacturing，印刷页8；依次为foundries、memory及assembly/testing/packaging段落。发布日另核对SEC filing index。",
+      "excerpt": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung.",
+      "interpretation": "该节具名列出晶圆代工、存储器采购和组装服务商；仅据此确定供应方向，不推定合同起止或份额。",
+      "source_type": "regulatory",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "ae423a6779be8392c569fb974b331c125fc251575f506e0b5c48922fd556ee8b",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-nv-fy26-competition",
+      "title": "NVIDIA FY2026 Form 10-K — Competition",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "publisher": "NVIDIA Corporation / SEC EDGAR",
+      "published_at": "2026-02-25",
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "Item 1 Business, Competition，印刷页9，current competitors首两项。",
+      "excerpt": "Our current competitors include:",
+      "interpretation": "列名竞争方并区分GPU/加速计算及云厂商自研AI平台；比较范围限于该业务维度。",
+      "source_type": "regulatory",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "84bdb2a342594ac27bad8b8ecb4cf2f58994e5925547e72f8bfc54a405303195",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-culitho-2024",
+      "title": "TSMC and Synopsys Bring Breakthrough NVIDIA Computational Lithography Platform to Production",
+      "source_url": "https://nvidianews.nvidia.com/news/tsmc-synopsys-nvidia-culitho",
+      "publisher": "NVIDIA Corporation",
+      "published_at": "2024-03-18",
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "正文第1—3段及 Semiconductor Leaders Advance cuLitho Platform。",
+      "excerpt": "Our work on cuLitho, in partnership with TSMC and Synopsys",
+      "interpretation": "生产工作流合作被明确披露；技术性能和未来部署表述不能当作采购额或收入证明。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "dc9bd2dfe83ebe466fa3fa510636845841aa7da7b133ee8567e1dbf8031950d5",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-asus-2017-supply",
+      "title": "ASUSTeK 2017 Annual Report — Supply of major raw materials",
+      "source_url": "https://www.asus.com/event/Investor/Content/attachment_en/20180604192723447041905_en.pdf",
+      "publisher": "ASUSTeK Computer Inc.",
+      "published_at": null,
+      "retrieved_at": "2026-09-16T09:39:46Z",
+      "evidence_locator": "印刷页106，PDF第110页，V. Overview of business operation → (III) Supply of major raw materials，Chips行；封面Printed on April 18, 2018。",
+      "excerpt": "Chips AMD, Intel, Nvidia, Qualcomm",
+      "interpretation": "Nvidia被列为芯片供应商，支持ASUS历史采购方角色。印刷日期为2018-04-18但未核验公开发布日期，故发布日期为空；供应合同起止未知。",
+      "source_type": "company",
+      "independence_key": "issuer:asus",
+      "content_sha256": "e8349d6a4f6b185e14f8f38bb0bc9b2e1f2d849486e3b64a2ed862870d413140",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-asus-2025-partner",
+      "title": "ASUSTeK 2025 Annual Report — Letter to Shareholders",
+      "source_url": "https://www.asus.com/EVENT/Investor/Content/attachment_en/2025_Annual_Report_en.pdf",
+      "publisher": "ASUSTeK Computer Inc.",
+      "published_at": null,
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "印刷页2，PDF第6页，gaming段落；另印刷页121原材料供应段与页122注释（2026-03-31印刷）。",
+      "excerpt": "partnered with NVIDIA to introduce G-SYNC Pulsar gaming monitors",
+      "interpretation": "2025回顾明确显示器合作；材料供应段仅给匿名供应商，不能确认当前直接采购。印刷日期不等于发布日期。",
+      "source_type": "company",
+      "independence_key": "issuer:asus",
+      "content_sha256": "fd7a6bc9ad6a5f71fb29dc7feacf9d71e1a090ce23464b41d1f6fe36ceb821ea",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-crwv-2026-investment",
+      "title": "CoreWeave Form 8-K — NVIDIA private placement",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000044/crwv-20260123.htm",
+      "publisher": "CoreWeave, Inc. / SEC EDGAR",
+      "published_at": "2026-01-26",
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "Item 3.02 Unregistered Sales of Equity Securities，第1段；Item 8.01 collaboration。",
+      "excerpt": "the Company completed the issuance and sale of 22,935,780 shares",
+      "interpretation": "披露2026-01-23已完成向NVIDIA发行A类股，总现金对价20亿美元。只证明认购事件，不证明截止日剩余持股。",
+      "source_type": "regulatory",
+      "independence_key": "issuer:coreweave",
+      "content_sha256": "356c971395990581f419ea23cbac542c7cba076e4bb5fd5c4b363b5a137046de",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-crwv-2026-partner",
+      "title": "NVIDIA and CoreWeave Strengthen Collaboration to Accelerate Buildout of AI Factories",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories",
+      "publisher": "NVIDIA Corporation / CoreWeave, Inc.",
+      "published_at": "2026-01-26",
+      "retrieved_at": "2026-09-16T09:38:19Z",
+      "evidence_locator": "正文首段、infrastructure/software/platform alignment及四项合作事项。",
+      "excerpt": "an expansion of their long-standing complementary relationship",
+      "interpretation": "确认扩大合作的公告；2030年前超过5GW为建设目标，不视作已建成容量或收入。与同一事件8-K不作为两个独立见证。",
+      "source_type": "company",
+      "independence_key": "issuer:coreweave",
+      "content_sha256": "1e8fb4d6a7f4bdc82d43f1e3a9b81117c55dc2fa1a430da8ec345fcf4d9727c3",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-snps-2025",
+      "title": "NVIDIA and Synopsys Announce Strategic Partnership to Revolutionize Engineering and Design",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-synopsys-announce-strategic-partnership-to-revolutionize-engineering-and-design",
+      "publisher": "NVIDIA Corporation / Synopsys, Inc.",
+      "published_at": "2025-12-01",
+      "retrieved_at": "2026-09-16T09:40:19Z",
+      "evidence_locator": "Key Highlights三项；正文第2段；Joint Development to Enable Future of Engineering on Accelerated Computing。",
+      "excerpt": "NVIDIA invested $2 billion in Synopsys common stock.",
+      "interpretation": "同时披露多年工程设计合作及已进行20亿美元股权投资，投资不是GPU采购承诺。未披露确切交割日及截止日持股。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "ec177cc9a5f602c43fc352abf57bea5b1828010d329bd358d1a4d0e0c63fca72",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-intel-2025",
+      "title": "NVIDIA and Intel to Develop AI Infrastructure and Personal Computing Products",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-intel-to-develop-ai-infrastructure-and-personal-computing-products",
+      "publisher": "NVIDIA Corporation / Intel Corporation",
+      "published_at": "2025-09-18",
+      "retrieved_at": "2026-09-16T09:40:19Z",
+      "evidence_locator": "正文第1—5段，custom data center and PC products、NVLink以及监管交割条件。",
+      "excerpt": "a collaboration to jointly develop multiple generations of custom data center and PC products",
+      "interpretation": "合作研发被明确宣布；该文的50亿美元投资仍有交割条件，本快照不以其作为已完成投资证明。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "3869967d2593fa80d78484083a3b817ecfdc5fb5b5a0d9042295dfa2c82f50e6",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-aws-2025",
+      "title": "NVIDIA and AWS Expand Full-Stack Partnership",
+      "source_url": "https://blogs.nvidia.com/blog/aws-partnership-expansion-reinvent/",
+      "publisher": "NVIDIA Corporation",
+      "published_at": "2025-12-02",
+      "retrieved_at": "2026-09-16T09:40:19Z",
+      "evidence_locator": "正文首段及NVLink Fusion/Trainium4段落。",
+      "excerpt": "NVIDIA and Amazon Web Services expanded their strategic collaboration",
+      "interpretation": "确认双方互连与云计算技术合作；AWS映射Amazon上市主体，部署GPU不单独证明直接采购。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "00365db6f7134b9865355e054071f9a0e1bdd0233ab4da7523adbd05db0327bc",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-ms-nvidia-2023",
+      "title": "NVIDIA Introduces Generative AI Foundry Service on Microsoft Azure for Enterprises and Startups Worldwide",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-introduces-generative-ai-foundry-service-on-microsoft-azure-for-enterprises-and-startups-worldwide",
+      "publisher": "NVIDIA Corporation",
+      "published_at": "2023-11-15",
+      "retrieved_at": "2026-09-16T09:41:56Z",
+      "evidence_locator": "正文首段、Satya Nadella引语及NVIDIA DGX Cloud Now Available on Microsoft Azure Marketplace。",
+      "excerpt": "Our partnership with NVIDIA spans every layer of the Copilot stack",
+      "interpretation": "确认Azure AI foundry合作发布；微软云服务运行产品不单独证明微软直接采购GPU。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "d134f5cfb6ce485c76b82b8418e5af5d634f4dfc4ce3befb67ab298a28c01f36",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-ms-ignite-2023",
+      "title": "Microsoft Ignite 2023: AI transformation and the technology driving change",
+      "source_url": "https://blogs.microsoft.com/blog/2023/11/15/microsoft-ignite-2023-ai-transformation-and-the-technology-driving-change/",
+      "publisher": "Microsoft Corporation",
+      "published_at": "2023-11-15",
+      "retrieved_at": "2026-09-16T09:41:56Z",
+      "evidence_locator": "Announcing NVIDIA AI foundry service小节，两段。",
+      "excerpt": "NVIDIA will announce their AI foundry service running on Azure.",
+      "interpretation": "合作另一方自身公告确认Azure服务；它链接NVIDIA同次发布，按同一联合信息链归组，不额外增加独立来源。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "409dc9dfef2fb65ce5b69c9d4c8b1ff4658ab28ec4f055c86d7321b825426d9a",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-google-2025",
+      "title": "NVIDIA Brings Agentic AI Reasoning to Enterprises With Google Cloud",
+      "source_url": "https://blogs.nvidia.com/blog/google-cloud-next-agentic-ai-reasoning/",
+      "publisher": "NVIDIA Corporation",
+      "published_at": "2025-04-09",
+      "retrieved_at": "2026-09-16T09:41:56Z",
+      "evidence_locator": "正文首段及Google Cloud负责人引语；Google Distributed Cloud/Blackwell。",
+      "excerpt": "NVIDIA is collaborating with Google Cloud",
+      "interpretation": "确认保密计算与Gemini部署合作；Google Cloud映射上市母公司Alphabet，计划可用不视作交付完成。",
+      "source_type": "company",
+      "independence_key": "issuer:nvidia",
+      "content_sha256": "9988f3c7e6ad22cc07288b5ae25e437aee8eca7281078ac1c4926a151a3b4df8",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    },
+    {
+      "id": "ev-micron-2024",
+      "title": "Micron Commences Volume Production of Industry-Leading HBM3E Solution to Accelerate the Growth of AI",
+      "source_url": "https://investors.micron.com/news/press-release/2024/Micron-Commences-Volume-Production-of-Industry-Leading-HBM3E-Solution-to-Accelerate-the-Growth-of-AI-02-26-2024/default.aspx",
+      "publisher": "Micron Technology, Inc.",
+      "published_at": "2024-02-26",
+      "retrieved_at": "2026-09-16T09:43:08Z",
+      "evidence_locator": "发布日期下首段，24GB 8H HBM3E与NVIDIA H200。",
+      "excerpt": "Micron’s 24GB 8H HBM3E will be part of NVIDIA H200 Tensor Core GPUs",
+      "interpretation": "供应商声明HBM3E产品用于H200，支持供应链参与；对直接采购属间接证据，和NVIDIA的2026年报直接采购披露分开。",
+      "source_type": "company",
+      "independence_key": "issuer:micron",
+      "content_sha256": "fb6b3994facd8f538982bdd4f005044a5d34f6d7dc9962b07b7cfc902bdc12f9",
+      "access_restrictions": "本次经公开网页或公开PDF原文读取，无登录/付费墙绕过；后续访问须遵守网站条款及访问控制。",
+      "redistribution_notes": "全文许可未确认，不随仓库再分发全文；仅保留来源元数据、极短引用及研究解释。"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "tsmc-nvidia-supplier",
+      "source_company_id": "tsmc",
+      "target_company_id": "nvidia",
+      "relationship_type": "supplier",
+      "business_description": "FY2026年报列名：TSMC提供晶圆代工。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "采购量、金额及业务占比未披露或未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-manufacturing",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "samsung-nvidia-supplier",
+      "source_company_id": "samsung",
+      "target_company_id": "nvidia",
+      "relationship_type": "supplier",
+      "business_description": "FY2026年报列名：三星电子提供晶圆代工及存储器。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "采购量、金额及业务占比未披露或未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-manufacturing",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "sk-hynix-nvidia-supplier",
+      "source_company_id": "sk-hynix",
+      "target_company_id": "nvidia",
+      "relationship_type": "supplier",
+      "business_description": "FY2026年报列名：NVIDIA向SK hynix采购存储器。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "采购量、金额及业务占比未披露或未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-manufacturing",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "micron-nvidia-supplier",
+      "source_company_id": "micron",
+      "target_company_id": "nvidia",
+      "relationship_type": "supplier",
+      "business_description": "FY2026年报列名：NVIDIA向Micron采购存储器。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "采购量、金额及业务占比未披露或未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-manufacturing",
+          "stance": "supports",
+          "directness": "direct"
+        },
+        {
+          "evidence_id": "ev-micron-2024",
+          "stance": "supports",
+          "directness": "indirect"
+        }
+      ]
+    },
+    {
+      "id": "hon-hai-nvidia-supplier",
+      "source_company_id": "hon-hai",
+      "target_company_id": "nvidia",
+      "relationship_type": "supplier",
+      "business_description": "FY2026年报列名：鸿海提供组装、测试及封装服务。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "采购量、金额及业务占比未披露或未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-manufacturing",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-asus-supplier-historical",
+      "source_company_id": "nvidia",
+      "target_company_id": "asus",
+      "relationship_type": "supplier",
+      "business_description": "ASUS 2017年报具名列出Nvidia为芯片供应商；ASUS为历史采购方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "historical",
+      "continuity_note": "仅确认2017年报所记录的历史供应事实。未披露合同起止，因此不将2017年整年或印刷日伪装成有效区间。",
+      "uncertainty": "2025年报的匿名供应商不可消歧为NVIDIA；不能证明截至研究截止日仍有直接采购。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-asus-2017-supply",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-tsmc-culitho",
+      "source_company_id": "nvidia",
+      "target_company_id": "tsmc",
+      "relationship_type": "partner",
+      "business_description": "2024-03-18宣布TSMC与NVIDIA开展cuLitho生产工作流合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2024-03-18",
+      "valid_to": "2024-03-18",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "持续期限、后续执行与收入贡献未完整核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-culitho-2024",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-synopsys-culitho",
+      "source_company_id": "nvidia",
+      "target_company_id": "synopsys",
+      "relationship_type": "partner",
+      "business_description": "2024-03-18宣布Synopsys与NVIDIA开展cuLitho计算光刻合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2024-03-18",
+      "valid_to": "2024-03-18",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "持续期限、后续执行与收入贡献未完整核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-culitho-2024",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-synopsys-engineering",
+      "source_company_id": "nvidia",
+      "target_company_id": "synopsys",
+      "relationship_type": "partner",
+      "business_description": "2025-12-01宣布扩大工程设计、CUDA加速与数字孪生合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2025-12-01",
+      "valid_to": "2025-12-01",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "持续期限、后续执行与收入贡献未完整核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-snps-2025",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-asus-display",
+      "source_company_id": "nvidia",
+      "target_company_id": "asus",
+      "relationship_type": "partner",
+      "business_description": "ASUS 2025年报披露与NVIDIA推出G-SYNC Pulsar显示器的合作。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "historical",
+      "continuity_note": "年报回顾事实，准确合作日和结束日未知；不从财年回顾推定整年有效。",
+      "uncertainty": "合同内容、合作具体发生日和收入规模均未核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-asus-2025-partner",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-intel-development",
+      "source_company_id": "nvidia",
+      "target_company_id": "intel",
+      "relationship_type": "partner",
+      "business_description": "2025-09-18宣布共同开发通过NVLink连接的定制数据中心与PC产品。",
+      "fact_status": "confirmed",
+      "valid_from": "2025-09-18",
+      "valid_to": "2025-09-18",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "产品交付尚有未来条件；本公告所述投资非交割证明，未据此添加投资完成记录。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-intel-2025",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-coreweave-factories",
+      "source_company_id": "nvidia",
+      "target_company_id": "coreweave",
+      "relationship_type": "partner",
+      "business_description": "2026-01-26宣布扩大AI工厂、软件验证与计算平台合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2026-01-26",
+      "valid_to": "2026-01-26",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "持续期限、后续执行与收入贡献未完整核验。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": "到2030年超过5GW为公告目标；不是已建成容量、销售额或订单履约量。",
+      "evidence_links": [
+        {
+          "evidence_id": "ev-crwv-2026-partner",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-microsoft-foundry",
+      "source_company_id": "nvidia",
+      "target_company_id": "microsoft",
+      "relationship_type": "partner",
+      "business_description": "2023-11-15双方公告在Microsoft Azure上推出NVIDIA AI foundry服务。",
+      "fact_status": "confirmed",
+      "valid_from": "2023-11-15",
+      "valid_to": "2023-11-15",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "Azure为微软业务；两方同次发布按同一信息链计数；不证明微软直接GPU采购额。",
+      "human_review_status": "approved",
+      "entity_resolution": "mapped",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-ms-nvidia-2023",
+          "stance": "supports",
+          "directness": "direct"
+        },
+        {
+          "evidence_id": "ev-ms-ignite-2023",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-alphabet-cloud",
+      "source_company_id": "nvidia",
+      "target_company_id": "alphabet",
+      "relationship_type": "partner",
+      "business_description": "2025-04-09宣布Google Cloud与NVIDIA开展Gemini及Blackwell保密计算合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2025-04-09",
+      "valid_to": "2025-04-09",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "Google Cloud归属Alphabet；可用性含计划表述，未核验后续交付或直接采购。",
+      "human_review_status": "approved",
+      "entity_resolution": "mapped",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-google-2025",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-amazon-cloud",
+      "source_company_id": "nvidia",
+      "target_company_id": "amazon",
+      "relationship_type": "partner",
+      "business_description": "2025-12-02宣布AWS与NVIDIA扩大NVLink Fusion和云平台合作。",
+      "fact_status": "confirmed",
+      "valid_from": "2025-12-02",
+      "valid_to": "2025-12-02",
+      "temporal_status": "historical",
+      "continuity_note": "本条结论限定为当日已发生的合作公告事件；同日起止仅界定事件，不表示合作当日终止，也不证明未来项目已落地。",
+      "uncertainty": "AWS归属Amazon；产品计划、GPU部署与直接采购法律关系不能等同。",
+      "human_review_status": "approved",
+      "entity_resolution": "mapped",
+      "comparison_dimension": null,
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-aws-2025",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-coreweave-investment",
+      "source_company_id": "nvidia",
+      "target_company_id": "coreweave",
+      "relationship_type": "investor_or_investee",
+      "business_description": "CoreWeave披露于2026-01-23完成向NVIDIA发行A类普通股的投资交易。",
+      "fact_status": "confirmed",
+      "valid_from": "2026-01-23",
+      "valid_to": "2026-01-23",
+      "temporal_status": "historical",
+      "continuity_note": "记录已完成认购的历史事件，同日起止为交易事件日，不表示持股当日卖出；截止日持股余额未知。",
+      "uncertainty": "不能由这次认购推定当前股数、持股比例或后续增减持。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": "22,935,780股；每股87.20美元；公告总现金对价20亿美元。金额描述交易规模，不作为置信度奖励。",
+      "evidence_links": [
+        {
+          "evidence_id": "ev-crwv-2026-investment",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-synopsys-investment",
+      "source_company_id": "nvidia",
+      "target_company_id": "synopsys",
+      "relationship_type": "investor_or_investee",
+      "business_description": "2025-12-01公告披露NVIDIA已投资Synopsys普通股。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "historical",
+      "continuity_note": "公告使用已投资表述，故确认历史投资；确切交割日期未明，不把公告日填成交割日；截止日持股未知。",
+      "uncertainty": "未核验确切交割日、截止日持股数量与后续交易。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": null,
+      "quantitative_context": "公告投资20亿美元，每股414.79美元；不是Synopsys承诺购买GPU的金额。",
+      "evidence_links": [
+        {
+          "evidence_id": "ev-snps-2025",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-amd-peer",
+      "source_company_id": "nvidia",
+      "target_company_id": "amd",
+      "relationship_type": "peer",
+      "business_description": "年报将AMD列为GPU及AI加速计算竞争方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "只比较所列业务维度；不表示全部业务互为替代，亦不构成投资价值排序。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": "独立/集成GPU与AI加速计算软硬件",
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-competition",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-intel-peer",
+      "source_company_id": "nvidia",
+      "target_company_id": "intel",
+      "relationship_type": "peer",
+      "business_description": "年报将Intel列为GPU及AI加速计算竞争方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "只比较所列业务维度；不表示全部业务互为替代，亦不构成投资价值排序。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": "独立/集成GPU与AI加速计算软硬件",
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-competition",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-microsoft-peer",
+      "source_company_id": "nvidia",
+      "target_company_id": "microsoft",
+      "relationship_type": "peer",
+      "business_description": "年报将Microsoft列为自研AI计算平台竞争方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "只比较所列业务维度；不表示全部业务互为替代，亦不构成投资价值排序。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": "云服务商自研AI/加速计算软硬件平台",
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-competition",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-alphabet-peer",
+      "source_company_id": "nvidia",
+      "target_company_id": "alphabet",
+      "relationship_type": "peer",
+      "business_description": "年报将Alphabet列为自研AI计算平台竞争方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "只比较所列业务维度；不表示全部业务互为替代，亦不构成投资价值排序。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": "云服务商自研AI/加速计算软硬件平台",
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-competition",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-amazon-peer",
+      "source_company_id": "nvidia",
+      "target_company_id": "amazon",
+      "relationship_type": "peer",
+      "business_description": "年报将Amazon列为自研AI计算平台竞争方。",
+      "fact_status": "confirmed",
+      "valid_from": null,
+      "valid_to": null,
+      "temporal_status": "unknown",
+      "continuity_note": "原文确认披露时的关系；未核验合同起止及2026-09-16是否持续，未知日期不补齐。",
+      "uncertainty": "只比较所列业务维度；不表示全部业务互为替代，亦不构成投资价值排序。",
+      "human_review_status": "approved",
+      "entity_resolution": "exact",
+      "comparison_dimension": "云服务商自研AI/加速计算软硬件平台",
+      "quantitative_context": null,
+      "evidence_links": [
+        {
+          "evidence_id": "ev-nv-fy26-competition",
+          "stance": "supports",
+          "directness": "direct"
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-DEFAULT_SNAPSHOT = ROOT / "data" / "snapshots" / "2026-09-16.v1.json"
+DEFAULT_SNAPSHOT = ROOT / "data" / "snapshots" / "2026-09-16.v3.json"
 
 
 def database_url() -> str:

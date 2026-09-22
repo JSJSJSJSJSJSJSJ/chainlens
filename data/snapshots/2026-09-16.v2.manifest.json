@@ -1,0 +1,12 @@
+{
+  "dataset_version": "2026-09-16.v2",
+  "research_cutoff": "2026-09-16",
+  "score_version": "1.0.0",
+  "snapshot_file": "2026-09-16.v2.json",
+  "snapshot_sha256": "20cdaee526caaa201e7de497271536f726afd9d1587fa6bb7c838c17e7c14e17",
+  "counts": {
+    "companies": 14,
+    "relationships": 22,
+    "evidence": 14
+  }
+}

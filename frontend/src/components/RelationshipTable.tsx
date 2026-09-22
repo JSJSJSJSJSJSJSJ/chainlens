@@ -1,6 +1,6 @@
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Page, Relationship } from '../types';
-import { dateLabel, roleLabels, statusLabels, temporalLabels } from '../labels';
+import { dateLabel, reviewLabels, roleLabels, statusLabels, temporalLabels } from '../labels';
 
 export function Direction({ relation }: { relation: Relationship }) {
   const symmetric = relation.relationship_type === 'partner' || relation.relationship_type === 'peer';
@@ -13,7 +13,7 @@ export function RelationshipTable({ data, selected, onSelect, onPage }: { data: 
       <tbody>{data.items.map(relation => <tr key={relation.id} className={selected === relation.id ? 'selected' : ''}>
         <td><button className="company-link" onClick={() => onSelect(relation.id)} aria-label={`查看${relation.related_company?.display_name ?? relation.target_company.display_name}的${roleLabels[relation.queried_role]}关系`}><span className="company-avatar">{(relation.related_company?.ticker ?? relation.target_company.ticker).slice(0, 2)}</span><span><strong>{relation.related_company?.display_name ?? relation.target_company.display_name}</strong><small>{relation.related_company?.exchange} · {relation.related_company?.ticker}</small></span></button><p className="business-snippet" title={relation.business_description}>{relation.business_description}</p></td>
         <td><span className={`role-tag role-${relation.queried_role}`}>{roleLabels[relation.queried_role]}</span><Direction relation={relation} /></td>
-        <td><span className={`status-label status-${relation.fact_status}`}>{statusLabels[relation.fact_status]}</span><small className="muted block">待人工复核</small></td>
+        <td><span className={`status-label status-${relation.fact_status}`}>{statusLabels[relation.fact_status]}</span><small className="muted block">{reviewLabels[relation.human_review_status]}</small></td>
         <td><div className="score-value">{relation.score.total}<span>/100</span></div><div className="score-track"><span style={{ width: `${relation.score.total}%` }} /></div></td>
         <td><span className="evidence-number">{relation.evidence_count}</span><small className="muted block">{relation.independent_source_count} 个独立来源</small></td>
         <td><span className="date-text">{dateLabel(relation.valid_from)}</span><small className="muted block">{temporalLabels[relation.temporal_status]}</small></td>

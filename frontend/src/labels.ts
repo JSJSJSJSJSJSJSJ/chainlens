@@ -5,6 +5,7 @@ export const roleLabels: Record<RelationshipRole, string> = { supplier: '供应�
 export const roleColors: Record<RelationshipRole, string> = { supplier: '#168467', customer: '#4b75a6', partner: '#97823c', investor_or_investee: '#9766aa', peer: '#73818e' };
 export const statusLabels: Record<FactStatus, string> = { confirmed: '事实已证实', inferred: '有据推断', unknown: '证据不足' };
 export const temporalLabels = { historical: '历史关系', current: '截至截止日有效', unknown: '持续性未确定' };
+export const reviewLabels = { pending: '待人工复核', review_prepared: '审核记录已准备，待本人确认', approved: '人工审核通过' };
 export const validityLabels = { supported: '当前持续性有依据', historical_only: '仅支持历史关系', unestablished: '当前持续性未确立' };
 export const defaultFilters: Filters = { q: '', relationship_type: '', min_confidence: 0, fact_status: '', known_at: '', valid_at: '', include_unknown_time: false, sort: 'confidence_desc' };
 export const dateLabel = (date: string | null) => date ? date.slice(0, 10) : '未知';

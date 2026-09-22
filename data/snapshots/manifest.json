@@ -1,9 +1,9 @@
 {
-  "dataset_version": "2026-09-16.v1",
+  "dataset_version": "2026-09-16.v3",
   "research_cutoff": "2026-09-16",
   "score_version": "1.0.0",
-  "snapshot_file": "2026-09-16.v1.json",
-  "snapshot_sha256": "603e5c273aa3a1810b3789247daeef875336bea2c0eaa6abba29b6119dc20de8",
+  "snapshot_file": "2026-09-16.v3.json",
+  "snapshot_sha256": "9132085075c7ff42358d82e2b14dd46e381bed47a174575c74106b4158ebab7a",
   "counts": {
     "companies": 14,
     "relationships": 22,

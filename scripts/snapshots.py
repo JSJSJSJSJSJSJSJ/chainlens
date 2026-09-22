@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT = ROOT / "data" / "snapshots" / "2026-09-16.v1.json"
+DEFAULT = ROOT / "data" / "snapshots" / "2026-09-16.v3.json"
 
 
 def read(path: Path) -> dict:

@@ -27,7 +27,7 @@
 
 稳定公司 ID 与证券标识分开；同名实体按法律主体、官方身份描述与交易所核对。若事实主体为上市公司子公司，在实体说明和关系描述中写明，`entity_resolution=mapped` 会影响评分。别名仅供检索，不能单凭相同关键词合并两个实体。
 
-`confirmed` 表示证据直接支持所写的有限结论；`inferred` 是有依据但不是直接披露的推断；`unknown` 为不足以确定。`human_review_status=pending` 与三者独立。即使 confirmed 得到高分，仍可能是待人工复核的历史事件。
+`confirmed` 表示证据直接支持所写的有限结论；`inferred` 是有依据但不是直接披露的推断；`unknown` 为不足以确定。`human_review_status` 与三者独立：`pending` 表示待人工复核，`review_prepared` 表示审核记录草稿已准备、待本人确认，均不表示人工通过；`approved`表示人工审核通过，当前v3的22条关系由JOE于2026-09-22确认，逐条判断见[human-review.md](human-review.md)。即使 confirmed 得到高分，仍可能是待人工复核的历史事件。
 
 ## 三种时间与两种过滤
 

@@ -55,6 +55,24 @@ def test_import_new_version_and_restore_old(engine, snapshot_file, tmp_path, pay
     assert import_snapshot(engine, snapshot_file)["status"] == "imported"
 
 
+@pytest.mark.parametrize("review_status", ["review_prepared", "approved"])
+def test_review_round_trips_without_changing_facts(engine, tmp_path, payload, review_status):
+    payload["metadata"]["dataset_version"] = "synthetic-review-prepared"
+    payload["relationships"][0]["human_review_status"] = review_status
+    path = tmp_path / "prepared.json"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with Session(engine) as session:
+        before = ResearchService(session).relationship("supply")
+    import_snapshot(engine, path)
+    with Session(engine) as session:
+        after = ResearchService(session).relationship("supply")
+        assert after["human_review_status"] == review_status
+        assert after["fact_status"] == before["fact_status"]
+        assert after["score"]["total"] == before["score"]["total"]
+        untouched = payload["relationships"][1]["id"]
+        assert ResearchService(session).relationship(untouched)["human_review_status"] == "pending"
+
+
 @pytest.mark.parametrize(
     "mutation",
     [
@@ -94,7 +112,7 @@ def test_snapshot_rejects_invalid_semantics(payload, mutation):
     if mutation == "reversed_time":
         payload["relationships"][0]["valid_from"] = "2026-01-01"
     if mutation == "review":
-        payload["relationships"][0]["human_review_status"] = "approved"
+        payload["relationships"][0]["human_review_status"] = "invalid-review-status"
     if mutation == "peer_dimension":
         payload["relationships"][3]["comparison_dimension"] = None
     if mutation == "confirmation":
@@ -271,7 +289,7 @@ def test_real_snapshot_integrity_and_five_role_coverage(tmp_path):
     # Real data test checks structure, never substitutes synthetic claims for research.
     snapshot, _ = load_snapshot(DEFAULT_SNAPSHOT)
     assert len(snapshot.companies) == 14 and len(snapshot.relationships) == 22
-    assert all(item.human_review_status == "pending" for item in snapshot.relationships)
+    assert all(item.human_review_status == "approved" for item in snapshot.relationships)
     engine = make_engine(f"sqlite:///{tmp_path / 'real.sqlite3'}")
     import_snapshot(engine, DEFAULT_SNAPSHOT)
     with Session(engine) as session:

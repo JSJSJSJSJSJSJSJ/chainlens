@@ -2,7 +2,7 @@
 
 基于公开证据的 NVIDIA 供应链与合作关系研究工作台。把“公司之间是什么关系”拆成可追溯的具体结论、方向、时间、证据和确定性评分，适合展示后端建模、React 数据流与全栈测试。
 
-**研究信息截止日：2026-09-16。** 固定快照包含 NVIDIA 加 13 家关联上市公司、22 条关系、14 份证据，覆盖五类角色。它是精选研究样本，不是完整市场覆盖。历史公告不自动证明当前合作或持股，所有条目仍待项目作者人工复核。分数不是投资价值或统计概率，本项目不构成投资建议。
+**研究信息截止日：2026-09-16。** 固定快照包含 NVIDIA 加 13 家关联上市公司、22 条关系、14 份证据，覆盖五类角色。它是精选研究样本，不是完整市场覆盖。历史公告不自动证明当前合作或持股，22条关系已由 JOE 于2026-09-22完成人工审核（`approved`），默认数据集为`2026-09-16.v3`。分数不是投资价值或统计概率，本项目不构成投资建议。
 
 ![实际运行的研究工作台](docs/screenshots/workbench.png)
 
@@ -79,7 +79,7 @@ pnpm --dir frontend e2e
 
 测试使用隔离的合成 fixture 覆盖冲突、未知日期、转载等边界，真实快照测试覆盖研究数据结构及五类角色。浏览器核心流程连接真实后端和固定快照。实际执行结果和未通过检查见 [验收记录](docs/acceptance.md)。
 
-浏览器测试会自动启动独立端口 **8001/5174** 的后端/前端，使用 `.runtime/e2e.sqlite3`，退出时关闭测试服务。普通开发的8000/5173服务不受影响。Windows 包管理器不可用时可用 `./scripts/frontend.ps1 browser` 与 `./scripts/frontend.ps1 e2e`。
+浏览器测试会自动启动独立端口 **8001/5174** 的后端/前端，使用 `.runtime/e2e-v3.sqlite3`，退出时关闭测试服务。普通开发的8000/5173服务不受影响。Windows 包管理器不可用时可用 `./scripts/frontend.ps1 browser` 与 `./scripts/frontend.ps1 e2e`。
 
 ## 资料清单与更新
 
@@ -96,7 +96,8 @@ uv run python scripts/snapshots.py compare data/snapshots/2026-09-16.v1.json dat
 
 - [数据模型、前后端职责与架构](docs/architecture.md)
 - [来源、时间、冲突、去重与评分方法](docs/methodology.md)
-- [AI 使用披露与待人工确认事项](docs/ai-usage.md)
+- [逐条人工审核记录与整体方法草稿](docs/human-review.md)
+- [AI 使用披露与后续事项](docs/ai-usage.md)
 - [五分钟面试演示与 React 讲解](docs/interview-guide.md)
 - [十项验收映射、验证结果与限制](docs/acceptance.md)
 
