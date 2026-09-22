@@ -1,0 +1,177 @@
+{
+  "dataset_version": "2026-09-16.v1",
+  "scope": "上市发行人目录及业务名归一。所有parent_id为空表示本目录中没有另建其上市母节点；不代表现实中不存在控股股东。",
+  "review_status": "pending",
+  "entries": [
+    {
+      "company_id": "nvidia",
+      "listed_issuer": "NVIDIA Corporation",
+      "ticker": "NVDA",
+      "exchange": "NASDAQ",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "locator": "Form 10-K 封面",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "以美国上市发行人归一；不把其品牌、产品或子公司另计为上市公司。"
+    },
+    {
+      "company_id": "tsmc",
+      "listed_issuer": "Taiwan Semiconductor Manufacturing Company Limited",
+      "ticker": "2330",
+      "exchange": "TWSE",
+      "source_url": "https://investor.cld.tsmc.com/english/faq",
+      "locator": "Which stock exchanges are TSMC traded on?",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "TWSE 2330 为普通股；NYSE TSM 为同一发行人的 ADS，不重复创建公司。"
+    },
+    {
+      "company_id": "samsung",
+      "listed_issuer": "Samsung Electronics Co., Ltd.",
+      "ticker": "005930",
+      "exchange": "KRX",
+      "source_url": "https://www.samsung.com/global/ir/stock-information/listing-Info/",
+      "locator": "Original Shares & GDRs / Ticker Symbols",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "三星电子上市主体；不等同于整个 Samsung 集团、Samsung SDS 或 Samsung SDI。普通股005930与优先股005935区分。"
+    },
+    {
+      "company_id": "sk-hynix",
+      "listed_issuer": "SK hynix Inc.",
+      "ticker": "000660",
+      "exchange": "KRX",
+      "source_url": "https://m.skhynix.com/ir/UI-FR-IR01/",
+      "locator": "IR 页面 SK hynix 000660 标识；韩国交易所市场归属待人工二次检查。",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "独立上市的存储器发行人；不等同于 SK Inc. 或 SK Telecom。"
+    },
+    {
+      "company_id": "micron",
+      "listed_issuer": "Micron Technology, Inc.",
+      "ticker": "MU",
+      "exchange": "NASDAQ",
+      "source_url": "https://investors.micron.com/news/press-release/2024/Micron-Commences-Volume-Production-of-Industry-Leading-HBM3E-Solution-to-Accelerate-the-Growth-of-AI-02-26-2024/default.aspx",
+      "locator": "首段 Micron Technology, Inc. (Nasdaq: MU)",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "以 Micron Technology 上市发行人归一；产品 HBM3E 不另建实体。"
+    },
+    {
+      "company_id": "hon-hai",
+      "listed_issuer": "Hon Hai Precision Industry Co., Ltd.",
+      "ticker": "2317",
+      "exchange": "TWSE",
+      "source_url": "https://www.honhai.com.tw/zh-tw/press-center/press-releases/latest-news",
+      "locator": "2026-08-28 公告 关于鴻海 / TWSE:2317",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "Foxconn 为鸿海科技集团通用名，本条以具名 Hon Hai Precision 发行人归一；不得与 A 股工业富联601138混用。"
+    },
+    {
+      "company_id": "asus",
+      "listed_issuer": "ASUSTeK Computer Inc.",
+      "ticker": "2357",
+      "exchange": "TWSE",
+      "source_url": "https://www.asus.com/event/Investor/about_faq",
+      "locator": "On what stock exchange is ASUSTek's common stock traded?",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "上市主体为华硕电脑；ROG 是品牌；ASUS Cloud 等子公司不作为本快照独立上市主体。"
+    },
+    {
+      "company_id": "synopsys",
+      "listed_issuer": "Synopsys, Inc.",
+      "ticker": "SNPS",
+      "exchange": "NASDAQ",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-synopsys-announce-strategic-partnership-to-revolutionize-engineering-and-design",
+      "locator": "正文首段 Synopsys, Inc. (NASDAQ: SNPS)",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "以 Synopsys 上市发行人归一；cuLitho/Proteus 为产品，不建立上市实体。"
+    },
+    {
+      "company_id": "amd",
+      "listed_issuer": "Advanced Micro Devices, Inc.",
+      "ticker": "AMD",
+      "exchange": "NASDAQ",
+      "source_url": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results",
+      "locator": "2026-08-04 新闻稿首段 AMD (NASDAQ:AMD)，站点发行人全名",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "Advanced Micro Devices 为法定上市主体，AMD 为简称和证券代码。"
+    },
+    {
+      "company_id": "intel",
+      "listed_issuer": "Intel Corporation",
+      "ticker": "INTC",
+      "exchange": "NASDAQ",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-intel-to-develop-ai-infrastructure-and-personal-computing-products",
+      "locator": "正文首段 Intel Corporation (NASDAQ: INTC)",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "使用 Intel Corporation 上市主体；Intel Foundry 等业务部门不另列上市公司。"
+    },
+    {
+      "company_id": "microsoft",
+      "listed_issuer": "Microsoft Corporation",
+      "ticker": "MSFT",
+      "exchange": "NASDAQ",
+      "source_url": "https://www.microsoft.com/en-us/investor/faq",
+      "locator": "What exchange does Microsoft stock trade on?",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "Azure 是 Microsoft 的云服务业务；云业务合作归一到上市 Microsoft，不代表所有微软业务均有关联。"
+    },
+    {
+      "company_id": "alphabet",
+      "listed_issuer": "Alphabet Inc.",
+      "ticker": "GOOGL",
+      "exchange": "NASDAQ",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "locator": "封面股票类别；Item 1 Google Cloud、Note 1 Nature of Operations；2015母公司重组",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "Google Cloud 属 Google 业务，映射上市母公司 Alphabet；GOOGL 为 A 类，GOOG 为 C 类，不重复计公司。"
+    },
+    {
+      "company_id": "amazon",
+      "listed_issuer": "Amazon.com, Inc.",
+      "ticker": "AMZN",
+      "exchange": "NASDAQ",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "locator": "封面 AMZN Nasdaq；Item 1 第三段 AWS报告分部",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "AWS 是 Amazon 报告分部，合作记录映射至上市母公司 Amazon.com；不将 AWS 当作独立上市发行人。"
+    },
+    {
+      "company_id": "coreweave",
+      "listed_issuer": "CoreWeave, Inc.",
+      "ticker": "CRWV",
+      "exchange": "NASDAQ",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000044/crwv-20260123.htm",
+      "locator": "Form 8-K 封面 Class A Common Stock CRWV Nasdaq",
+      "source_read_at": "2026-09-16T09:43:08Z",
+      "mapping": "8-K封面确认 CRWV 为 Nasdaq 上市 A 类普通股；2026年投资事件与当前持股分开。"
+    }
+  ],
+  "business_entity_mappings": [
+    {
+      "observed_name": "Google Cloud",
+      "canonical_company_id": "alphabet",
+      "kind": "business_segment_to_listed_parent",
+      "legal_chain": "Google业务 → Alphabet Inc.",
+      "limitations": "按年报集团业务归一；不声称合同签署方一定是Alphabet Inc.母公司。"
+    },
+    {
+      "observed_name": "Amazon Web Services / AWS",
+      "canonical_company_id": "amazon",
+      "kind": "business_segment_to_listed_parent",
+      "legal_chain": "AWS报告分部 → Amazon.com, Inc.",
+      "limitations": "仅代表集团业务关联；AWS各地签约主体未细分。"
+    },
+    {
+      "observed_name": "Microsoft Azure",
+      "canonical_company_id": "microsoft",
+      "kind": "business_unit_to_listed_issuer",
+      "legal_chain": "Microsoft Azure产品/云业务 → Microsoft Corporation",
+      "limitations": "不把Azure产品当作独立上市法人。"
+    },
+    {
+      "observed_name": "Foxconn",
+      "canonical_company_id": "hon-hai",
+      "kind": "group_brand_to_named_listed_issuer",
+      "legal_chain": "Foxconn/鸿海品牌 → 原文具名 Hon Hai Precision Industry Co., Ltd.",
+      "limitations": "工业富联等另行上市子公司没有自动继承本条关系。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+import { test, expect } from '@playwright/test';
+
+test('fixed snapshot → filters → evidence → shared graph → historical customer', async ({ page, request }) => {
+  const health = await request.get('/api/health');
+  expect(health.ok()).toBeTruthy(); expect((await health.json()).dataset_version).toBe('2026-09-16.v1');
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /NVIDIA 英伟达/ })).toBeVisible();
+  await expect(page.getByText('2026-09-16', { exact: true })).toBeVisible();
+  await page.getByLabel('关系类型', { exact: true }).selectOption('supplier');
+  await expect(page.getByRole('button', { name: '查看TSMC 台积电的供应商关系' })).toBeVisible();
+  await page.getByRole('button', { name: '查看TSMC 台积电的供应商关系' }).click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByText('待人工复核', { exact: true })).toBeVisible();
+  await expect(dialog.getByRole('link', { name: /NVIDIA FY2026 Form 10-K/ })).toHaveAttribute('href', /sec.gov/);
+  await dialog.getByText('来源可信度', { exact: true }).click();
+  await expect(dialog.getByText(/监管25/)).toBeVisible();
+  await page.screenshot({ path: '../.runtime/evidence-desktop.png', fullPage: true });
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: '关系图谱', exact: true }).click();
+  await expect(page.getByRole('region', { name: '可交互关系图' })).toBeVisible();
+  await expect(page.getByText('显示 5 / 5 条关系', { exact: false })).toBeVisible();
+  await page.getByRole('button', { name: '查看图中TSMC 台积电的供应商关系' }).click();
+  await expect(page.getByRole('dialog')).toBeVisible(); await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: '重置全部筛选' }).click();
+  await page.getByRole('button', { name: '关系列表', exact: true }).click();
+  await page.getByLabel('关系类型', { exact: true }).selectOption('customer');
+  await expect(page.getByRole('button', { name: '查看ASUS 华硕的客户关系' })).toBeVisible();
+  await page.getByRole('button', { name: '查看ASUS 华硕的客户关系' }).click();
+  await expect(page.getByRole('dialog').getByText(/2017年报/).first()).toBeVisible();
+  await page.keyboard.press('Escape'); await page.getByLabel('关键词').fill('NO_MATCH_1234');
+  await expect(page.getByText('没有符合条件的关系')).toBeVisible();
+  await page.getByRole('button', { name: '清除筛选' }).click();
+  await expect(page.locator('tbody tr')).toHaveCount(10);
+  await page.screenshot({ path: '../.runtime/workbench-desktop.png', fullPage: true });
+  await page.getByRole('button', { name: '关系图谱', exact: true }).click();
+  await expect(page.getByText('显示 22 / 22 条关系', { exact: false })).toBeVisible();
+  await expect(page.locator('.graph-edge-label')).toHaveCount(22);
+  await page.getByRole('region', { name: '可交互关系图' }).scrollIntoViewIfNeeded();
+  await page.screenshot({ path: '../.runtime/graph-desktop.png' });
+});
+
+test('mobile layout, keyboard detail and date boundary error', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 }); await page.goto('/');
+  await expect(page.locator('tbody tr')).toHaveCount(10);
+  const overflow = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: innerWidth, elements: [...document.querySelectorAll('body *')].filter(el => el.getBoundingClientRect().right > innerWidth + 1 && !el.closest('.table-scroll')).map(el => ({ tag: el.tagName, class: el.className, right: el.getBoundingClientRect().right })) }));
+  expect(overflow.width, JSON.stringify(overflow)).toBeLessThanOrEqual(overflow.viewport);
+  const first = page.locator('tbody .company-link').first(); await first.focus(); await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog')).toBeVisible(); await page.keyboard.press('Escape'); await expect(first).toBeFocused();
+  await page.getByText('时间范围与排序', { exact: false }).click();
+  await page.getByLabel('当时已公开的信息', { exact: true }).fill('2026-09-17');
+  await expect(page.getByRole('alert')).toHaveText(/不得晚于研究截止日/);
+  await page.getByRole('button', { name: '重置全部筛选' }).click();
+  await expect(page.locator('tbody tr')).toHaveCount(10);
+  await page.screenshot({ path: '../.runtime/workbench-mobile.png', fullPage: true });
+});
